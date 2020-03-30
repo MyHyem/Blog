@@ -1,0 +1,43 @@
+/* detailPost.jsp & home.jsp (pagination) */
+.pagination .btn-link {
+    text-transform: uppercase;
+}
+
+.pagination .page-link {
+    border: none;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #00657b;
+    border-color: #00657b;
+}
+
+.pagination .page-link {
+    color: gray;
+}
+
+/* detailPost.jsp (reply) */
+#rePlyArea #writeReplyBtn {
+    width: 100%;
+}
+
+#rePlyArea #replyContent {
+    margin-bottom: 1.5%;
+}
+
+#rePlyArea #replyWriter {
+    margin-bottom: 1%;
+}
+
+#rePlyArea #targetIdx {
+    margin-top: 1%;
+}
+
+#rePlyArea #writerArea {
+    margin-top: 0;
+}
+
+#rePlyArea #btnArea {
+    padding-left: 7px;
+    font-size: 9pt;
+}

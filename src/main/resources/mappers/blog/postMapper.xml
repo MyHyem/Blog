@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PostDAO">
+
+    <insert id="insertPost" parameterType="PostVO">
+        <![CDATA[
+            INSERT INTO posts
+            (title, sub_title, content, writer)
+            VALUES
+            (#{title}, #{subTitle}, #{content}, #{writer})
+        ]]>
+    </insert>
+
+    <select id="selectPost" parameterType="PostVO" resultMap="Post">
+        <![CDATA[
+            SELECT *
+            FROM posts
+            WHERE
+                1=1
+                AND idx = #{idx}
+        ]]>
+    </select>
+    
+    <select id="selectList" parameterType="Criteria" resultMap="Post">
+        <![CDATA[
+            SELECT *
+            FROM posts
+            ORDER BY
+                idx DESC
+            LIMIT
+                #{offset}, #{articleCnt}
+        ]]>
+    </select>
+
+    <select id="cntList" parameterType="Criteria" resultType="int">
+        <![CDATA[
+            SELECT
+                COUNT(*)
+            FROM posts
+            ORDER BY
+                idx DESC
+        ]]>
+    </select>
+
+    <update id="updatePost" parameterType="PostVO">
+        <![CDATA[
+            UPDATE posts SET
+                title = #{title}
+                ,sub_title = #{subTitle}
+                ,content = #{content}
+                ,modify_date = #{modifyDate}
+            WHERE
+                1=1
+                AND idx = #{idx}
+        ]]>
+    </update>
+
+    <delete id="deletePost" parameterType="PostVO">
+        <![CDATA[
+            DELETE FROM posts
+            WHERE
+                1=1
+                AND idx = #{idx}
+        ]]>
+    </delete>
+
+    <update id="updateViewCnt" parameterType="PostVO">
+        <![CDATA[
+            UPDATE posts SET
+                view_cnt = view_cnt + 1
+            WHERE
+               1=1
+                AND idx = #{idx}
+        ]]>
+    </update>
+
+    <update id="updateReplyCnt" parameterType="java.util.Map">
+        <![CDATA[
+            UPDATE posts SET
+                reply_cnt = reply_cnt + #{amount}
+            WHERE
+                idx = #{postIdx}
+        ]]>
+    </update>
+
+    <insert id="addFile" parameterType="String">
+        <![CDATA[
+            INSERT INTO files
+            (file_nm, post_idx)
+            VALUES
+            (#{fileName}, LAST_INSERT_ID())
+        ]]>
+    </insert>
+
+    <resultMap id="Post" type="PostVO">
+        <id property="idx" column="idx"/>
+        <result property="title" column="title"/>
+        <result property="subTitle" column="sub_title"/>
+        <result property="content" column="content"/>
+        <result property="writer" column="writer"/>
+        <result property="regDate" column="reg_date"/>
+        <result property="modifyDate" column="modify_date"/>
+        <result property="viewCnt" column="view_cnt"/>
+        <result property="replyCnt" column="reply_cnt"/>
+    </resultMap>
+</mapper>
