@@ -11,7 +11,8 @@ Spring Framework를 사용하여 제작한 Blog 입니다.
 * DB : MariaDB v10.1.x
 
 ## 사용 기술
-* 포스팅&댓글 : 권한에 따른 차등적인 CRUD 기능 제공
+* 포스팅 : 권한에 따른 차등적인 CRUD 기능 제공
+* 댓글 : ajax 를 사용하여 권한업이 등록기능이 제공되며, 회원가입 제도가 없는 관계로 수정기능은 미제공, 삭제기능은 admin 계정에만 권한이 부여됩니다.
 * 이메일 : Google SMTP 를 이용한 이메일전송 기능 제공
 * 다국어 : session 에서 locale 정보를 가져온 후, properties 파일을 통한 국문/영문 다국어 제공
 * 에디터 : CKEditor v4 사용
