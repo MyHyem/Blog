@@ -1,4 +1,4 @@
-## Blog
+## Blog v1.0.0
 Spring Framework를 사용하여 제작한 Blog 입니다.
 
 현재의 제 실력이 어느정도인지 알려드리고자 개발하게 되었습니다.
