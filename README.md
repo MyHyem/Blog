@@ -13,7 +13,7 @@ Spring Framework를 사용하여 제작한 Blog 입니다.
 ## 사용 기술
 * 포스팅&댓글 : 권한에 따른 차등적인 CRUD 기능 제공
 * 이메일 : Google SMTP 를 이용한 이메일전송 기능 제공
-* 다국어 : properties 파일을 통한 국문/영문 다국어 제공
+* 다국어 : session 에서 locale 정보를 가져온 후, properties 파일을 통한 국문/영문 다국어 제공
 * 에디터 : CKEditor v4 사용
 * XssFilter : lucy-xss-servlet-filter 사용
 
